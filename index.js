@@ -50,9 +50,6 @@ let displayAll = async () => {
       div.appendChild(pButton);
       body.appendChild(div);
       dButton.addEventListener("click", deleteOne);
-      pButton.addEventListener("click", () => {
-        window.location.replace("./update.html");
-      });
     });
   } catch (error) {
     console.log(error);
