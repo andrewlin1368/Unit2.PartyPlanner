@@ -7,7 +7,7 @@ let add = async (e) => {
 
   try {
     let response = await fetch(
-      "https://fsa-crud-2aa9294fe819.herokuapp.com/api/2311-fsa-et-web-ft-sf/recipes",
+      "https://fsa-crud-2aa9294fe819.herokuapp.com/api/2311-fsa-et-web-ft-sf/artists",
       {
         method: "POST",
         headers: {
