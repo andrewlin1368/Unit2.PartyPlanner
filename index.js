@@ -56,8 +56,8 @@ let displayAll = async () => {
   }
 };
 
-let add = (e) => {
-  console.log(e);
-};
+// let add = (e) => {
+//   console.log(e);
+// };
 
 displayAll();

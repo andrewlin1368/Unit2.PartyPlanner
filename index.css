@@ -1,0 +1,31 @@
+* {
+  box-sizing: border-box;
+}
+
+div {
+  padding: 5px;
+  margin: auto;
+  display: grid;
+  width: 50%;
+  border: 2px solid black;
+}
+
+button {
+  margin: auto;
+  width: 25%;
+}
+
+h3,
+p,
+img {
+  margin: auto;
+}
+
+form {
+  position: relative;
+}
+
+.add {
+  margin: auto;
+  position: absolute;
+}

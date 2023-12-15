@@ -1,0 +1,9 @@
+* {
+  box-sizing: border-box;
+}
+
+form {
+  display: grid;
+  width: 75%;
+  margin: auto;
+}
