@@ -16,6 +16,43 @@ let deleteOne = async (e) => {
   }
 };
 
+let updateDescription = async (e) => {
+  e.preventDefault();
+  console.log(document.getElementById(`updateDesc${e.target.id}`).value);
+  let data;
+  try {
+    let response = await fetch(
+      `https://fsa-crud-2aa9294fe819.herokuapp.com/api/2311-fsa-et-web-ft-sf/artists/${e.target.id}`,
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    data = await response.json();
+    data = data.data;
+  } catch (error) {
+    console.log(error);
+  }
+
+  data.description = document.getElementById(`updateDesc${e.target.id}`).value;
+  try {
+    await fetch(
+      `https://fsa-crud-2aa9294fe819.herokuapp.com/api/2311-fsa-et-web-ft-sf/artists/${e.target.id}`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      }
+    );
+    location.reload();
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 let displayAll = async () => {
   try {
     let response = await fetch(
@@ -27,7 +64,7 @@ let displayAll = async () => {
       }
     );
     let data = await response.json();
-    console.log(data.data);
+    // console.log(data.data);
     let body = document.querySelector("body");
     data.data.forEach((element) => {
       let div = document.createElement("div");
@@ -41,15 +78,26 @@ let displayAll = async () => {
       let pButton = document.createElement("button");
       pButton.innerHTML = "UPDATE";
       pButton.setAttribute("id", element.id);
+      let div2 = document.createElement("div");
+      let form = document.createElement("form");
+      let updateDesc = document.createElement("textarea");
+      updateDesc.setAttribute("id", `updateDesc${element.id}`);
+      let updateDescLabel = document.createElement("label");
+      updateDescLabel.innerHTML = "Update Description:";
       h3.innerHTML = element.name;
       p.innerHTML = element.description;
       div.appendChild(h3);
       div.appendChild(p);
       div.appendChild(img);
       div.appendChild(dButton);
-      div.appendChild(pButton);
+      form.appendChild(updateDescLabel);
+      form.appendChild(updateDesc);
+      form.appendChild(pButton);
+      div2.appendChild(form);
+      div.appendChild(div2);
       body.appendChild(div);
       dButton.addEventListener("click", deleteOne);
+      pButton.addEventListener("click", updateDescription);
     });
   } catch (error) {
     console.log(error);

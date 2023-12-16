@@ -5,6 +5,7 @@
 div {
   padding: 5px;
   margin: auto;
+  margin-top: 5px;
   display: grid;
   width: 50%;
   border: 2px solid black;
@@ -19,13 +20,11 @@ h3,
 p,
 img {
   margin: auto;
+  padding: 5px;
 }
 
 form {
-  position: relative;
-}
-
-.add {
+  display: grid;
+  width: 75%;
   margin: auto;
-  position: absolute;
 }
